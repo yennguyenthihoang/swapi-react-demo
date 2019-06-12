@@ -12,7 +12,7 @@ class Person extends Component {
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    axios.get(`https://swapi.co/api/people/1/`).then(res => {
+    axios.get(`https://swapi.co/api/people/${params.id}/`).then(res => {
       const person = res.data;
       console.log("Person: " + person);
       this.setState({
@@ -54,7 +54,7 @@ class Person extends Component {
                 {
                   this.state.person.starships && this.state.person.starships.map(starship => (
                     <div key={starship} className="col-sm-12 col-md-12 col-lg-12">
-                      <Link to={`${starship}`}>
+                      <Link to={`/starship/${starship.split('/')[5]}`}>
                         <p className="card-text">{starship}</p>
                       </Link>
                     </div>
@@ -67,7 +67,7 @@ class Person extends Component {
                 {
                   this.state.person.films && this.state.person.films.map(film => (
                     <div key={film} className="col-sm-12 col-md-12 col-lg-12">
-                      <Link to={`${film}`}>
+                      <Link to={`/film/${film.split('/')[5]}`}>
                         <p className="card-text">{film}</p>
                       </Link>
                     </div>
@@ -80,7 +80,7 @@ class Person extends Component {
                 {
                   this.state.person.species && this.state.person.species.map(specie => (
                     <div key={specie} className="col-sm-12 col-md-12 col-lg-12">
-                      <Link to={`${specie}`}>
+                      <Link to={`/specie/${specie.split('/')[5]}`}>
                         <p className="card-text">{specie}</p>
                       </Link>
                     </div>
@@ -93,7 +93,7 @@ class Person extends Component {
                 {
                   this.state.person.vehicles && this.state.person.vehicles.map(vehicle => (
                     <div key={vehicle} className="col-sm-12 col-md-12 col-lg-12">
-                      <Link to={`${vehicle}`}>
+                      <Link to={`/vehicle/${vehicle.split('/')[5]}`}>
                         <p className="card-text">{vehicle}</p>
                       </Link>
                     </div>

@@ -10,9 +10,9 @@ class Starship extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { match: { params } } = this.props;
-    axios.get('https://swapi.co/api/starships/12/').then(res => {
+    axios.get(`https://swapi.co/api/starships/${params.id}/`).then(res => {
       const starship = res.data;
       console.log("Starship: " + starship);
       this.setState({
@@ -60,7 +60,7 @@ class Starship extends Component {
                   {
                     this.state.starship.pilots && this.state.starship.pilots.map(pilot => (
                       <div key={pilot} className="col-sm-12 col-md-12 col-lg-12">
-                        <Link to={`${pilot}`}>
+                        <Link to={`/person/${pilot.split('/')[5]}`}>
                           <p className="card-text">{pilot}</p>
                         </Link>
                       </div>
@@ -73,7 +73,7 @@ class Starship extends Component {
                   {
                     this.state.starship.films && this.state.starship.films.map(film => (
                       <div key={film} className="col-sm-12 col-md-12 col-lg-12">
-                        <Link to={`${film}`}>
+                        <Link to={`/film/${film.split('/')[5]}`}>
                           <p className="card-text">{film}</p>
                         </Link>
                       </div>
