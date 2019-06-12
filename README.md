@@ -1,2 +1,2 @@
-# sneakers-react-demo
-A web page that displays all the characters of sneakers. Allow user to view a list of sneakers, search and view sneaker information and its brand information.
+# swapi-react-demo
+A web page that displays all the characters of people. Allow user to view a list of persons, search and view person information and its starship information.
