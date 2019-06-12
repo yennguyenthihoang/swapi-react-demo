@@ -26,38 +26,83 @@ class Person extends Component {
     if (person === null) return <p>Loading ...</p>;
     return (
       <div className="container">
-        <div className="row">
-          <h4 className="font-weight-bold offset-md-5 title">{person.name}</h4>
+         <div className="jumbotron col-12">
+            <h4 className="display-5 font-weight-bold offset-md-4">Person Information - {person.name}</h4>
+            <hr className="my-4" />
+            <div className="row col-sm-12 col-md-12 col-lg-12">
+              <div className="col-sm-6 col-md-4 col-lg-4">
+                <p className="card-text"><b>Gender: </b>{person.gender}</p>
+                <p className="card-text"><b>Birth Year: </b>{person.birth_year}</p>
+                <p className="card-text"><b>Height: </b>{person.height} cm</p>
+              </div>
+              <div className="col-sm-6 col-md-4 col-lg-4">
+                <p className="card-text"><b>Mass: </b>{person.mass}</p>
+                <p className="card-text"><b>Hair Color: </b>{person.hair_color}</p>
+                <p className="card-text"><b>Skin Color: </b>{person.skin_color}</p>
+              </div>
+              <div className="col-sm-6 col-md-4 col-lg-4">
+                <p className="card-text"><b>Eye color: </b>{person.eye_color}</p>
+                <p className="card-text"><b>Created Date: </b>{person.created}</p>
+                <p className="card-text"><b>Edited Date: </b>{person.edited}</p>
+              </div>
+            </div>
+            <hr className="my-4" />
+            <div className="row col-sm-12 col-md-12 col-lg-12">
+              <div className="col-sm-6 col-md-3 col-lg-3">
+                <p className="font-weight-bold"><b>Starships:</b></p>
+                {this.state.person.starships === null && <p>Loading Starship...</p>}
+                {
+                  this.state.person.starships && this.state.person.starships.map(starship => (
+                    <div key={starship} className="col-sm-12 col-md-12 col-lg-12">
+                      <Link to={`${starship}`}>
+                        <p className="card-text">{starship}</p>
+                      </Link>
+                    </div>
+                  ))
+                }
+              </div>
+              <div className="col-sm-6 col-md-3 col-lg-3">
+                <p className="font-weight-bold"><b>Films:</b></p>
+                {this.state.person.films === null && <p>Loading Starship...</p>}
+                {
+                  this.state.person.films && this.state.person.films.map(film => (
+                    <div key={film} className="col-sm-12 col-md-12 col-lg-12">
+                      <Link to={`${film}`}>
+                        <p className="card-text">{film}</p>
+                      </Link>
+                    </div>
+                  ))
+                }
+              </div>
+              <div className="col-sm-6 col-md-3 col-lg-3">
+                <p className="font-weight-bold"><b>Species:</b></p>
+                {this.state.person.species === null && <p>Loading species...</p>}
+                {
+                  this.state.person.species && this.state.person.species.map(specie => (
+                    <div key={specie} className="col-sm-12 col-md-12 col-lg-12">
+                      <Link to={`${specie}`}>
+                        <p className="card-text">{specie}</p>
+                      </Link>
+                    </div>
+                  ))
+                }
+              </div>
+              <div className="col-sm-6 col-md-3 col-lg-3">
+                <p className="font-weight-bold"><b>Vehicles:</b></p>
+                {this.state.person.vehicles === null && <p>Loading vehicles...</p>}
+                {
+                  this.state.person.vehicles && this.state.person.vehicles.map(vehicle => (
+                    <div key={vehicle} className="col-sm-12 col-md-12 col-lg-12">
+                      <Link to={`${vehicle}`}>
+                        <p className="card-text">{vehicle}</p>
+                      </Link>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="row col-sm-12 col-md-12 col-lg-12">
-          <div className="col-sm-12 col-md-4 col-lg-4">
-            <p className="card-text"><b>Gender: </b>{person.gender}</p>
-            <p className="card-text"><b>Birth Year: </b>{person.birth_year}</p>
-            <p className="card-text"><b>Height: </b>{person.height} cm</p>
-            <p className="card-text"><b>Mass: </b>{person.mass}</p>
-          </div>
-          <div className="col-sm-12 col-md-4 col-lg-4">
-            <p className="card-text"><b>Hair Color: </b>{person.hair_color}</p>
-            <p className="card-text"><b>Skin Color: </b>{person.skin_color}</p>
-            <p className="card-text"><b>Eye color: </b>{person.eye_color}</p>
-            <p className="card-text"><b>Created Date: </b>{person.created}</p>
-            <p className="card-text"><b>Edited Date: </b>{person.edited}</p>
-          </div>
-          <div className="col-sm-12 col-md-4 col-lg-4">
-            <h4 className="font-weight-bold">Star ships:</h4>
-            {this.state.person.starships === null && <p>Loading Starship...</p>}
-              {
-                this.state.person.starships && this.state.person.starships.map(starship => (
-                  <div key={starship} className="col-sm-12 col-md-4 col-lg-3">
-                    <Link to={`${starship}`}>
-                      <p className="card-text">{starship}</p>
-                    </Link>
-                  </div>
-                ))
-              }
-          </div>
-        </div>
-      </div>
     )
   }
 }

@@ -59,7 +59,7 @@ class Starship extends Component {
                 {this.state.starship === null && <p>Loading Starship...</p>}
                   {
                     this.state.starship.pilots && this.state.starship.pilots.map(pilot => (
-                      <div key={pilot} className="col-sm-12 col-md-4 col-lg-3">
+                      <div key={pilot} className="col-sm-12 col-md-12 col-lg-12">
                         <Link to={`${pilot}`}>
                           <p className="card-text">{pilot}</p>
                         </Link>
@@ -72,7 +72,7 @@ class Starship extends Component {
                 {this.state.starship === null && <p>Loading Starship...</p>}
                   {
                     this.state.starship.films && this.state.starship.films.map(film => (
-                      <div key={film} className="col-sm-12 col-md-4 col-lg-3">
+                      <div key={film} className="col-sm-12 col-md-12 col-lg-12">
                         <Link to={`${film}`}>
                           <p className="card-text">{film}</p>
                         </Link>
